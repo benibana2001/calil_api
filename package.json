@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/benibana2001/calil_api#readme",
   "devDependencies": {
-    "http-server": "^0.11.1"
+    "dotenv": "^8.2.0",
+    "http-server": "^0.11.1",
+    "webpack": "^4.41.2",
+    "webpack-dev-server": "^3.9.0"
   }
 }

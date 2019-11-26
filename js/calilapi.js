@@ -73,10 +73,13 @@ Calil.prototype = {
 				}
 			});
 		}else{
+            // TODO: JSONPでの取得は避けたいが、CORSを防ぐ手立てが見当たらない
+            // To avoid using JSONP but there is problem about server.
 			$.ajax({
 					url: url,
 					dataType: "jsonp",
 					success:function(data){
+                        console.log(data)
 							self.callback(data);
 					},
 					error:function(error){
