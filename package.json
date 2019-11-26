@@ -1,0 +1,24 @@
+{
+  "name": "calil_api",
+  "version": "1.0.0",
+  "description": "This repository only exists I check how to work [calil api and this library](https://calil.jp/doc/api_ref.html).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx http-server ./ -p 8088"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benibana2001/calil_api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benibana2001/calil_api/issues"
+  },
+  "homepage": "https://github.com/benibana2001/calil_api#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
