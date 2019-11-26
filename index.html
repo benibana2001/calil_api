@@ -1,0 +1,27 @@
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <link href="https://calil.jp/public/css/calilapi.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/calilapi.js"></script>
+    <script>
+        let isbn_list = [4103534222];
+        let systemid_list = ['Tokyo_NDL'];
+        var calil = new Calil({
+            'appkey': '46a2412f4ceb07b72a251150f2533c74',
+            'render': new CalilRender(),
+            'isbn': isbn_list,
+            'systemid': systemid_list
+        });
+        calil.search();
+    </script>
+</body>
+
+</html>
