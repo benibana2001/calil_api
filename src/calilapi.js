@@ -1,3 +1,6 @@
+'use strict';
+
+console.log('calil api desu')
 function Calil() {
 	this.initialize.apply(this, arguments);
 }

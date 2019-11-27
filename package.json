@@ -1,27 +1,28 @@
 {
-  "name": "calil_api",
-  "version": "1.0.0",
-  "description": "This repository only exists I check how to work [calil api and this library](https://calil.jp/doc/api_ref.html).",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx http-server ./ -p 8088"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/benibana2001/calil_api.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/benibana2001/calil_api/issues"
-  },
-  "homepage": "https://github.com/benibana2001/calil_api#readme",
-  "devDependencies": {
-    "dotenv": "^8.2.0",
-    "http-server": "^0.11.1",
-    "webpack": "^4.41.2",
-    "webpack-dev-server": "^3.9.0"
-  }
+    "name": "calil_api",
+    "version": "1.0.0",
+    "description": "This repository only exists I check how to work [calil api and this library](https://calil.jp/doc/api_ref.html).",
+    "main": "index.js",
+    "scripts": {
+        "cp-entryfile": "cp ./index.html dist/index.html",
+        "start": "npm run cp-entryfile &  npx webpack-dev-server",
+        "build": "npm run cp-entryfile & npx webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/benibana2001/calil_api.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/benibana2001/calil_api/issues"
+    },
+    "homepage": "https://github.com/benibana2001/calil_api#readme",
+    "devDependencies": {
+        "dotenv-webpack": "^1.7.0",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.9.0"
+    }
 }
