@@ -1,11 +1,13 @@
+import Calil from './Calil'
+let c = new Calil()
 console.log(process.env.DB_HOST);
-// import Calil from './calilapi'
+// import c from './calilapi'
 
 // let isbn_list = [4103534222];
 // let systemid_list = ['Tokyo_NDL'];
-// var calil = new Calil({
+// var calil = new c.Calil({
 //     'appkey': '',
-//     'render': new CalilRender(),
+//     'render': new c.CalilRender(),
 //     'isbn': isbn_list,
 //     'systemid': systemid_list
 // });

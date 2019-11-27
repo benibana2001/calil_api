@@ -5,7 +5,7 @@ module.exports = {
         new Dotenv()
     ],
     mode: 'production',
-    entry: './src/index.js',
+    entry: './src/index.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
@@ -15,13 +15,16 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                include: [
-                    path.resolve(__dirname, 'src')
-                ]
-            }
+                include: [path.resolve(__dirname, 'src')]
+            },
+            {
+				test: /\.ts$/,
+				loader: 'ts-loader',
+				include: [path.resolve(__dirname, 'src')]
+			},
         ]
     },
     resolve: {
-        extensions: ['.js']
+        extensions: ['.js', '.ts']
     }
 }
