@@ -1,5 +1,6 @@
 import f = require('fetch-jsonp');
 import fetchJsonp = require('fetch-jsonp');
+import { resolve } from 'dns';
 export { Calil, options }
 
 class Calil {
@@ -49,14 +50,21 @@ class Calil {
      * because not supported in standard fetch API.
      * 
      */
-    public search(): void {
-
+    public async search(): Promise<any> {
+        await this.callApi()
     }
     /**
      * callApi
      */
-    public callApi(): void {
-
+    public async callApi(): Promise<any> {
+        let appkey: string = this._options.appkey
+        // Create url
+        let url: string = 'https://api.calil.jp/check?appkey=' + appkey + '&isbn=1920197008605&systemid=Tokyo_Setagaya&format=json'
+        //
+        let something: fetchJsonp.Response = await fetchJsonp(url).then((response) => {
+            return response.json()
+        })
+        console.log(something)
     }
 }
 

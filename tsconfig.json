@@ -14,9 +14,7 @@
         "node_modules"
     ],
     "paths": {
-        "fetch-jsonp": [
-            "node_modules/fetch-jsonp/index.d.ts"
-        ]
+        
     }
 
 }
