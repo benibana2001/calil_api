@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "module": "es2015",
+        "module": "commonjs",
         "target": "es5",
         "noImplicitAny": true,
         "preserveConstEnums": true,
@@ -12,5 +12,11 @@
     ],
     "exclude": [
         "node_modules"
-    ]
+    ],
+    "paths": {
+        "fetch-jsonp": [
+            "node_modules/fetch-jsonp/index.d.ts"
+        ]
+    }
+
 }

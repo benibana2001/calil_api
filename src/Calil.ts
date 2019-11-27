@@ -1,4 +1,8 @@
-export default class Calil {
+import f = require('fetch-jsonp');
+import fetchJsonp = require('fetch-jsonp');
+export { Calil, options }
+
+class Calil {
     //----------------------------------------
     public api_timeout_timer: number = 0
     public api_call_count: number = 0
@@ -22,6 +26,7 @@ export default class Calil {
      */
     public init(): void {
         this.checkOptions()
+        console.log(fetchJsonp)
     }
     /**
      * checkOptions
@@ -29,7 +34,7 @@ export default class Calil {
      */
     public checkOptions(): void {
         // Set AppKey
-        if(!this._options.appkey) {
+        if (!this._options.appkey) {
             alert('Please enter appkey')
         }
         // Set ISBN to property.
@@ -44,19 +49,19 @@ export default class Calil {
      * because not supported in standard fetch API.
      * 
      */
-    public search ():  void {
-    
+    public search(): void {
+
     }
     /**
      * callApi
      */
-    public callApi ():  void {
-    
+    public callApi(): void {
+
     }
 }
 
 interface options {
     'appkey': string,
-    'isbn': number,
-    'systemid': number
+    'isbn': number[],
+    'systemid': number[]
 }
