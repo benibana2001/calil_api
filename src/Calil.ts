@@ -94,6 +94,7 @@ class Calil {
         if (status === 1) {
             // AB-NORMAL. If data.continue === 1, server is still running
             console.log('Server is still runnning. So start polling...')
+            // Do polling. This function should be loop until server process done.
             this.poll()
         } else if (status === 0) {
             // NORMAL. If data.continue === 0, server process is done.
