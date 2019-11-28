@@ -15,7 +15,6 @@ class Calil {
     private _options: options
     //----------------------------------------
     constructor(O: options) {
-        console.log('hello Calil.ts')
         // Set Arguments.
         this._options = O
         // Check Arguments.
@@ -51,20 +50,58 @@ class Calil {
      * 
      */
     public async search(): Promise<any> {
-        await this.callApi()
+        // Create url
+        let appkey: string = this._options.appkey
+        let url: string = 'https://api.calil.jp/check?appkey=' + appkey + '&isbn=1920197008605&systemid=Tokyo_Setagaya&format=json'
+        // Request
+        let json: any = await this.callApi(url)
+        // Check data
+        let status: number = this.checkServerStatus(json)
+        // Check value 'continue' and decide next process.
+        this.confirm(status)
+        // DONE
+        console.log(`search() is finished.`)
+    }
+    /**
+    * poll
+    */
+    public poll(): void {
+        console.log('Start polling.')
     }
     /**
      * callApi
      */
-    public async callApi(): Promise<any> {
-        let appkey: string = this._options.appkey
-        // Create url
-        let url: string = 'https://api.calil.jp/check?appkey=' + appkey + '&isbn=1920197008605&systemid=Tokyo_Setagaya&format=json'
-        //
-        let something: fetchJsonp.Response = await fetchJsonp(url).then((response) => {
-            return response.json()
-        })
-        console.log(something)
+    public async callApi(url: string): Promise<any> {
+        // fetch jsonp... I don't know why but fetch-jsonp package wrapp response twice by Promise.
+        let res: fetchJsonp.Response = await fetchJsonp(url)
+        let s: any = await res.json()
+        console.log(`s: ${JSON.stringify(s)}`)
+        return s
+    }
+
+    /**
+     * checkServerStatus
+     */
+    private checkServerStatus(data: any): number {
+        return data.continue
+    }
+    /**
+     * confirm
+     * Check All data was got or not.
+     * And Do next process.
+     */
+    private confirm(status: number): void {
+        if (status === 1) {
+            // AB-NORMAL. If data.continue === 1, server is still running
+            console.log('Server is still runnning. So start polling...')
+            this.poll()
+        } else if (status === 0) {
+            // NORMAL. If data.continue === 0, server process is done.
+            console.log('Serve processe is done.')
+            return 
+        } else {
+            console.log(`json.continue is wrong value.`)
+        }
     }
 }
 
